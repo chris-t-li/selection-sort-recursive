@@ -1,5 +1,14 @@
 function selectionSortRecursive(arr) {
-  // type your code here
+  if (!arr.length) {
+    return []
+  }
+  const min = Math.min(...arr);
+  const index = arr.indexOf(min);
+  arr.splice(index, 1);
+
+  const result = [min].concat(selectionSortRecursive(arr));
+
+  return result;
 }
 
 if (require.main === module) {
